@@ -1,0 +1,375 @@
+
+/* Global Resets and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-green: #007A33;
+    --primary-white: #FFFFFF;
+    --light-gray: #F0F0F0;
+    --medium-gray: #E0E0E0;
+    --dark-gray: #333333;
+    --text-color: #333333;
+    --error-red: #D32F2F;
+    --success-green: #007A33; /* Can be same as primary or slightly different */
+    --font-family: 'Lato', sans-serif;
+    --border-radius: 8px;
+    --spacing-small: 0.75rem;
+    --spacing-medium: 1.5rem;
+    --spacing-large: 2.5rem;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background: linear-gradient(to bottom right, var(--light-gray), var(--medium-gray)); /* Subtle gradient background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 1.05rem; /* Slightly larger base font */
+}
+
+/* App Container and Layout */
+.app-container {
+    width: 100%;
+    max-width: 900px; /* Slightly smaller max width */
+    margin: 0 auto;
+    padding: var(--spacing-medium) 1rem; /* More vertical padding */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.app-header {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+    padding: var(--spacing-medium) var(--spacing-large); /* More padding */
+    text-align: center;
+    margin-bottom: var(--spacing-large); /* More space below header */
+    border-radius: var(--border-radius); /* Rounded corners for header */
+}
+
+.app-header h1 {
+    font-size: 2rem; /* Slightly larger header font */
+    font-weight: 700;
+}
+
+.app-header h1 i {
+    margin-right: 0.5rem;
+}
+
+.main-content {
+    background-color: var(--primary-white);
+    padding: var(--spacing-large); /* More padding */
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    flex-grow: 1;
+    margin-bottom: var(--spacing-large); /* More space above footer */
+}
+
+.app-footer {
+    text-align: center;
+    padding: var(--spacing-small) var(--spacing-medium); /* Adjusted padding */
+    font-size: 0.875rem;
+    color: #666;
+    background-color: var(--medium-gray);
+    border-radius: var(--border-radius); /* Rounded corners */
+    width: 100%; /* Ensure footer spans width if app-container has padding */
+    margin-top: auto; /* Pushes footer to bottom */
+}
+
+/* Typography */
+h2 {
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-medium); /* Increased space below headings */
+    font-size: 1.8rem; /* Slightly larger h2 */
+}
+
+h2 i {
+    margin-right: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-small) var(--spacing-medium); /* Adjusted padding */
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    border: 2px solid transparent;
+}
+
+.btn i {
+    margin-left: var(--spacing-small); /* Consistent spacing */
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+    border-color: var(--primary-green);
+    box-shadow: 0 2px 5px rgba(0, 122, 51, 0.2); /* Subtle primary shadow */
+}
+
+.btn-primary:hover {
+    background-color: #005c24; /* Darker green */
+    border-color: #005c24;
+    box-shadow: 0 4px 10px rgba(0, 122, 51, 0.3); /* Stronger hover shadow */
+}
+
+.btn-secondary {
+    background-color: var(--primary-white);
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+    box-shadow: 0 2px 5px rgba(0, 122, 51, 0.1); /* Subtle secondary shadow */
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-gray);
+    color: #005c24;
+    border-color: #005c24;
+    box-shadow: 0 4px 10px rgba(0, 122, 51, 0.2); /* Stronger hover shadow */
+}
+
+.btn-full-width {
+    display: block;
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+    gap: var(--spacing-small); /* Slightly less gap on small screens */
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
+    justify-content: center; /* Center buttons in group */
+}
+
+.button-group .btn {
+    flex-grow: 1; /* Allow buttons to grow if space allows */
+    min-width: 150px; /* Ensure minimum width */
+}
+
+/* Added utility class for margin-top */
+.mt-large {
+    margin-top: var(--spacing-large);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: var(--spacing-medium); /* Consistent form group spacing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-small); /* Consistent label spacing */
+    font-weight: 700;
+    color: var(--dark-gray);
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-small); /* Consistent padding */
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+}
+
+/* File input styling can be tricky and varies by browser. Keeping simple for demo. */
+/* .form-group input[type="file"] {
+    padding: var(--spacing-small);
+} */
+
+.form-group textarea {
+    min-height: 150px; /* Slightly taller textarea */
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(0, 122, 51, 0.25); /* Slightly stronger focus ring */
+}
+
+/* Specific Page Styles */
+
+/* Home Page */
+.hero-section {
+    text-align: center;
+    padding: var(--spacing-large) 0; /* More vertical padding */
+}
+.hero-section h2 {
+    font-size: 2.5rem; /* Larger h2 */
+    margin-bottom: var(--spacing-large); /* More space */
+}
+.hero-section p {
+    font-size: 1.15rem; /* Slightly larger paragraph text */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-medium); /* Consistent paragraph spacing */
+}
+
+/* Auth Page */
+.auth-card {
+    max-width: 450px;
+    margin: var(--spacing-large) auto; /* More vertical margin */
+    padding: var(--spacing-large); /* More padding */
+    background-color: var(--primary-white); /* Ensure card is white if main-content bg changes */
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.auth-card h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-large); /* More space below h2 */
+}
+.disclaimer-message {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    margin-top: var(--spacing-medium); /* More space above */
+    padding: var(--spacing-small) var(--spacing-medium); /* Adjusted padding */
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-green);
+}
+.disclaimer-message i {
+    margin-right: var(--spacing-small); /* Consistent spacing */
+    color: var(--primary-green);
+}
+
+/* Personalization & Job Description Page */
+.content-card {
+    max-width: 700px;
+    margin: var(--spacing-medium) auto; /* Consistent margin */
+    padding: var(--spacing-medium); /* Added padding */
+    background-color: var(--primary-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.content-card h2 {
+    text-align: left; /* Default alignment for content cards */
+    margin-bottom: var(--spacing-large); /* More space below h2 */
+}
+
+/* Result Pages */
+.result-card {
+    text-align: center;
+}
+.result-title {
+    font-size: 2.5rem; /* Larger title */
+    font-weight: 700;
+    margin-bottom: var(--spacing-large); /* More space below title */
+}
+.success-text {
+    color: var(--success-green);
+}
+.error-text {
+    color: var(--error-red);
+}
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-large) 0; /* More space */
+    text-align: left;
+    display: inline-block; /* Center the list block */
+}
+.skills-list li {
+    margin-bottom: var(--spacing-small); /* Consistent spacing */
+    font-size: 1.15rem; /* Slightly larger list items */
+    display: flex;
+    align-items: center;
+}
+.skills-list li i {
+    margin-right: var(--spacing-small); /* Consistent spacing */
+    font-size: 1.2rem;
+}
+.skill-icon-match {
+    color: var(--success-green);
+}
+.skill-icon-miss {
+    color: var(--error-red);
+}
+.back-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-medium); /* More space */
+    font-size: 0.9rem;
+    color: var(--primary-green);
+    text-decoration: none;
+    border: 1px solid var(--medium-gray);
+    padding: var(--spacing-small) var(--spacing-medium); /* Adjusted padding */
+    border-radius: var(--border-radius);
+    background-color: var(--light-gray);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+}
+.back-link:hover {
+    background-color: var(--medium-gray);
+    color: #005c24;
+}
+.back-link i {
+    margin-right: var(--spacing-small); /* Consistent spacing */
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+    .app-container {
+        padding: 0 var(--spacing-large); /* More padding */
+    }
+    .app-header {
+        padding: var(--spacing-large);
+        margin-bottom: var(--spacing-large);
+    }
+    .app-header h1 {
+        font-size: 2.2rem; /* Larger header font */
+    }
+    .main-content {
+        padding: var(--spacing-large); /* More padding */
+        margin-bottom: var(--spacing-large);
+    }
+    .hero-section h2 {
+        font-size: 2.8rem; /* Larger h2 */
+    }
+    .button-group {
+        gap: var(--spacing-medium); /* Larger gap on wider screens */
+    }
+    .button-group .btn {
+        flex-grow: 0; /* Buttons don't need to grow as much */
+        min-width: auto; /* Remove min-width if not needed */
+    }
+    .auth-card,
+    .content-card {
+        padding: var(--spacing-large) var(--spacing-extra-large, 3rem); /* Add horizontal padding */
+    }
+}
+
+/* Optional: Even larger padding on larger screens */
+@media (min-width: 900px) {
+    .auth-card,
+    .content-card {
+        padding: var(--spacing-large) var(--spacing-extra-large-plus, 4rem);
+    }
+}
+    

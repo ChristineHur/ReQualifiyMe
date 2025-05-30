@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personalization | ReQualifyMe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body id="personalizationPage">
+  <div class="app-container">
+    <header class="app-header">
+      <h1><i class="fas fa-clipboard-check"></i> ReQualifyMe</h1>
+    </header>
+    <main class="main-content">
+      <div class="content-card">
+        <h2>Your Profile & Skills</h2>
+        <p>Help us understand your strengths. Rate your skills on a scale of 1 (Beginner) to 5 (Expert).</p>
+
+        <!-- Only one form, with action set to the next page -->
+        <form id="personalizationForm" action="job-description.html" method="get">
+          <div class="form-group">
+            <label for="publicSpeaking">Public Speaking</label>
+            <select id="publicSpeaking" name="publicSpeaking">
+              <option value="1">1 - Beginner</option>
+              <option value="2">2 - Novice</option>
+              <option value="3" selected>3 - Intermediate</option>
+              <option value="4">4 - Advanced</option>
+              <option value="5">5 - Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="adaptability">Adaptability</label>
+            <select id="adaptability" name="adaptability">
+              <option value="1">1 - Beginner</option>
+              <option value="2">2 - Novice</option>
+              <option value="3" selected>3 - Intermediate</option>
+              <option value="4">4 - Advanced</option>
+              <option value="5">5 - Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="problemSolving">Problem-solving</label>
+            <select id="problemSolving" name="problemSolving">
+              <option value="1">1 - Beginner</option>
+              <option value="2">2 - Novice</option>
+              <option value="3" selected>3 - Intermediate</option>
+              <option value="4">4 - Advanced</option>
+              <option value="5">5 - Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="teamwork">Teamwork</label>
+            <select id="teamwork" name="teamwork">
+              <option value="1">1 - Beginner</option>
+              <option value="2">2 - Novice</option>
+              <option value="3" selected>3 - Intermediate</option>
+              <option value="4">4 - Advanced</option>
+              <option value="5">5 - Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="leadership">Leadership</label>
+            <select id="leadership" name="leadership">
+              <option value="1">1 - Beginner</option>
+              <option value="2">2 - Novice</option>
+              <option value="3" selected>3 - Intermediate</option>
+              <option value="4">4 - Advanced</option>
+              <option value="5">5 - Expert</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="resumeUpload">Upload Resume (PDF or DOC)</label>
+            <input type="file" id="resumeUpload" name="resumeUpload" accept=".pdf,.doc,.docx" required>
+          </div>
+
+          <!-- Working button inside the correct form -->
+          <button type="submit" class="btn btn-primary btn-full-width">
+            Next <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
+    </main>
+    <footer class="app-footer">
+      <p>&copy; 2025 Resume Matcher Demo. For illustration purposes only.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

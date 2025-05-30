@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Description | ReQualifyMe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body id="jobDescriptionPage">
+  <div class="app-container">
+    <header class="app-header">
+      <h1><i class="fas fa-clipboard-check"></i> ReQualifyMe</h1>
+    </header>
+    <main class="main-content">
+      <div class="content-card">
+        <h2><i class="fas fa-paste"></i> Insert Job Description</h2>
+        <p>Paste the full job description below for analysis.</p>
+        <div class="form-group">
+          <textarea id="jobDescriptionText" rows="15" placeholder="Paste job description here..."></textarea>
+        </div>
+        <button id="analyzeFitButton" class="btn btn-primary btn-full-width">
+          Analyze Fit <i class="fas fa-search-dollar"></i>
+        </button>
+      </div>
+    </main>
+    <footer class="app-footer">
+      <p>&copy; 2025 ReQualifyMe</p>
+    </footer>
+  </div>
+
+  <!-- Inline JavaScript -->
+  <script>
+    // Use localStorage to persist toggle state across refreshes
+    const button = document.getElementById('analyzeFitButton');
+
+    if (localStorage.getItem('toggleState') === null) {
+      localStorage.setItem('toggleState', 'qualified');
+    }
+
+    button.addEventListener('click', () => {
+      const current = localStorage.getItem('toggleState');
+      if (current === 'qualified') {
+        localStorage.setItem('toggleState', 'not-qualified');
+        window.location.href = 'result-qualified.html';
+      } else {
+        localStorage.setItem('toggleState', 'qualified');
+        window.location.href = 'result-not-qualified.html';
+      }
+    });
+  </script>
+</body>
+</html>
